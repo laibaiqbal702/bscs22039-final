@@ -20,20 +20,39 @@
 
     <section id="skills" class="skills-section">
         <h2 class="skills-heading">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>Technical Skills</h3>
-                <p>-> Python<br>-> C++ <br>-> Canva</p>
-            </div>
-            <div class="skill-card">
-                <h3>Soft Skills</h3>
-                <p>-> Communication <br>-> Teamwork<br>-> Problem-solving</p>
-            </div>
+        <div class="skills-container" id="skills-container">
         </div>
     </section>
     
     <footer>
         <p>&copy; 2024 لائبہ اقبال. All rights reserved.</p>
     </footer>
+
+    <script>
+        const skillsData = {
+            technicalSkills: [
+                "Python",
+                "C++",
+                "Canva"
+            ],
+            softSkills: [
+                "Communication",
+                "Teamwork",
+                "Problem-solving"
+            ]
+        };
+
+        const skillsContainer = document.getElementById('skills-container');
+
+        const createSkillCard = (title, skills) => {
+            const skillCard = document.createElement('div');
+            skillCard.className = 'skill-card';
+            skillCard.innerHTML = `<h3>${title}</h3><p>${skills.map(skill => `-> ${skill}`).join('<br>')}</p>`;
+            return skillCard;
+        };
+
+        skillsContainer.appendChild(createSkillCard('Technical Skills', skillsData.technicalSkills));
+        skillsContainer.appendChild(createSkillCard('Soft Skills', skillsData.softSkills));
+    </script>
 </body>
 </html>
