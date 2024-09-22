@@ -19,20 +19,14 @@
     </header>
 
     <section id="contact-section">
-        <!-- Contact Information on the Left -->
         <div class="contact-info">
             <h2>Contact Me</h2>
             <p>You can reach me via:</p>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:l4laibaiqbal@gmail.com">l4laibaiqbal@gmail.com</a></li>
-                <li><strong>Phone:</strong> <a href="tel:+923208466596">0320-8466596</a></li>
+            <ul id="contact-list">
             </ul>
             
             <h3>Follow Me</h3>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/laiba-iqbal" target="_blank">LinkedIn</a>
-                <a href="https://www.instagram.com/laiba" target="_blank">Instagram</a>
-                <a href="https://twitter.com/laiba702" target="_blank">Twitter</a>
+            <div class="social-links" id="social-links">
             </div>
         </div>
 
@@ -45,5 +39,26 @@
     <footer>
         <p>&copy; 2024 لائبہ اقبال. All rights reserved.</p>
     </footer>
+
+    <script>
+        const contactInfo = {
+            email: "l4laibaiqbal@gmail.com",
+            phone: "0320-8466596",
+            socialLinks: [
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/laiba-iqbal" },
+                { name: "Instagram", url: "https://www.instagram.com/laiba" },
+                { name: "Twitter", url: "https://twitter.com/laiba702" }
+            ]
+        };
+        const contactList = document.getElementById('contact-list');
+        const emailItem = `<li><strong>Email:</strong> <a href="mailto:${contactInfo.email}">${contactInfo.email}</a></li>`;
+        const phoneItem = `<li><strong>Phone:</strong> <a href="tel:+923208466596">${contactInfo.phone}</a></li>`;
+        contactList.innerHTML = emailItem + phoneItem;
+        const socialLinksDiv = document.getElementById('social-links');
+        contactInfo.socialLinks.forEach(link => {
+            const linkItem = `<a href="${link.url}" target="_blank">${link.name}</a>`;
+            socialLinksDiv.innerHTML += linkItem + ' ';
+        });
+    </script>
 </body>
 </html>
