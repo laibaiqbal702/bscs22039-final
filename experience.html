@@ -21,56 +21,77 @@
     <section id="experience">
         <h2 class="section-title">My Experience</h2>
         <div class="timeline">
-            <div class="card" style="background-image: url('1.png');">
-                <div class="card-header">
-                    <h3>Kaar e Kamal (Volunteer)</h3>
-                    <span>August 2023 - Present</span>
-                </div>
-                <div class="card-body">
-                    <p>Worked on projects like clothing drives,<br> orphanage visits, and food drives.</p>
-                </div>
-            </div>
-            <div class="card"  style="background-image: url('2.png');">
-                <div class="card-header">
-                    <h3>Private Tutoring</h3>
-                    <span>March 2020 - Present</span>
-                </div>
-                <div class="card-body">
-                    <p>Taught various subjects including<br> Mathematics and Computer Science to students.</p>
-                </div>
-            </div>
-            <div class="card" style="background-image: url('3.png');">
-                <div class="card-header">
-                    <h3>BISE Invigilation</h3>
-                    <span>June 2023 - Present</span>
-                </div>
-                <div class="card-body">
-                    <p>Monitored students during exams,<br> ensuring compliance with regulations.</p>
-                </div>
-            </div>
-            <div class="card"  style="background-image: url('4.png');">
-                <div class="card-header">
-                    <h3>Social Media Intern</h3>
-                    <span>July 2024 - August 2024</span>
-                </div>
-                <div class="card-body">
-                    <p>Assisted in managing social media<br> accounts and engaging with the community.</p>
-                </div>
-            </div>
-            <div class="card"  style="background-image: url('1.png');">
-                <div class="card-header">
-                    <h3>Kaar e Kamal (Blood Donation Head)</h3>
-                    <span>August 2024 - Present</span>
-                </div>
-                <div class="card-body">
-                    <p>Led initiatives for blood<br> donation drives and community awareness.</p>
-                </div>
-            </div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 لائبہ اقبال. All rights reserved.</p>
     </footer>
+
+    <!-- Add the script here -->
+    <script>
+        const experiences = [
+            {
+                title: "Kaar e Kamal (Volunteer)",
+                date: "August 2023 - Present",
+                description: "Worked on projects like clothing drives, orphanage visits, and food drives.",
+                backgroundImage: "1.png"
+            },
+            {
+                title: "Private Tutoring",
+                date: "March 2020 - Present",
+                description: "Taught various subjects including Mathematics and Computer Science to students.",
+                backgroundImage: "2.png"
+            },
+            {
+                title: "BISE Invigilation",
+                date: "June 2023 - Present",
+                description: "Monitored students during exams, ensuring compliance with regulations.",
+                backgroundImage: "3.png"
+            },
+            {
+                title: "Social Media Intern",
+                date: "July 2024 - August 2024",
+                description: "Assisted in managing social media accounts and engaging with the community.",
+                backgroundImage: "4.png"
+            },
+            {
+                title: "Kaar e Kamal (Blood Donation Head)",
+                date: "August 2024 - Present",
+                description: "Led initiatives for blood donation drives and community awareness.",
+                backgroundImage: "1.png"
+            }
+        ];
+
+        const experienceContainer = document.querySelector('.timeline');
+
+        experiences.forEach(experience => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.style.backgroundImage = `url('${experience.backgroundImage}')`;
+
+            const cardHeader = document.createElement('div');
+            cardHeader.classList.add('card-header');
+            const title = document.createElement('h3');
+            title.textContent = experience.title;
+            const date = document.createElement('span');
+            date.textContent = experience.date;
+
+            cardHeader.appendChild(title);
+            cardHeader.appendChild(date);
+
+            const cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+            const description = document.createElement('p');
+            description.innerHTML = experience.description.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+            cardBody.appendChild(description);
+
+            card.appendChild(cardHeader);
+            card.appendChild(cardBody);
+
+            experienceContainer.appendChild(card);
+        });
+    </script>
 </body>
 </html>
