@@ -20,36 +20,55 @@
 
     <section id="education" class="education-section">
         <h2 class="education-heading">Education</h2>
-        <div class="education-container">
-            <div class="education-card">
-                <img src="itu.jpg" class="education-img" alt="Information Technology University">
-                <div class="education-content">
-                    <h3>Information Technology University</h3>
-                    <p>Bachelor's in Computer Science (2022 - 2026)</p>
-                    <p>Current CGPA: 3.22</p>
-                </div>
-            </div>
-            <div class="education-card">
-                <img src="qmc.jpg" class="education-img" alt="Queen Mary College">
-                <div class="education-content">
-                    <h3>Queen Mary College</h3>
-                    <p>Intermediate, ICS (2020 - 2022)</p>
-                    <p>Marks scored: 966/1100 - A+</p>
-                </div>
-            </div>
-            <div class="education-card">
-                <img src="dps.jpeg" class="education-img" alt="CDG Girls High School">
-                <div class="education-content">
-                    <h3>CDG Girls High School</h3>
-                    <p>Matriculation (2018 - 2020)</p>
-                    <p>Marks scored: 950/1100 - A+</p>
-                </div>
-            </div>
+        <div class="education-container" id="education-container">
         </div>
     </section>
     
     <footer>
         <p>&copy; 2024 لائبہ اقبال. All rights reserved.</p>
     </footer>
+
+    <script>
+        const educationData = [
+            {
+                institution: "Information Technology University",
+                degree: "Bachelor's in Computer Science (2022 - 2026)",
+                cgpa: "Current CGPA: 3.22",
+                img: "itu.jpg"
+            },
+            {
+                institution: "Queen Mary College",
+                degree: "Intermediate, ICS (2020 - 2022)",
+                marks: "Marks scored: 966/1100 - A+",
+                img: "qmc.jpg"
+            },
+            {
+                institution: "CDG Girls High School",
+                degree: "Matriculation (2018 - 2020)",
+                marks: "Marks scored: 950/1100 - A+",
+                img: "dps.jpeg"
+            }
+        ];
+
+        const educationContainer = document.getElementById('education-container');
+
+        const createEducationCard = ({ institution, degree, cgpa, marks, img }) => {
+            const educationCard = document.createElement('div');
+            educationCard.className = 'education-card';
+            educationCard.innerHTML = `
+                <img src="${img}" class="education-img" alt="${institution}">
+                <div class="education-content">
+                    <h3>${institution}</h3>
+                    <p>${degree}</p>
+                    <p>${cgpa ? cgpa : marks}</p>
+                </div>
+            `;
+            return educationCard;
+        };
+
+        educationData.forEach(edu => {
+            educationContainer.appendChild(createEducationCard(edu));
+        });
+    </script>
 </body>
 </html>
