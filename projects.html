@@ -20,33 +20,55 @@
 
     <section id="projects" class="projects-section">
         <h2 class="projects-heading">Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <img src="card.jpg" class="project-img" alt="Solitaire Game">
-                <div class="project-content">
-                    <h3>Solitaire Game</h3>
-                    <p>A fully functional solitaire game developed using C++.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="search.jpg" class="project-img" alt="Search Engine">
-                <div class="project-content">
-                    <h3>Search Engine</h3>
-                    <p>A simple search engine using data structures concepts in Python.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="paint.jpg" class="project-img" alt="Paint Application">
-                <div class="project-content">
-                    <h3>Paint Application</h3>
-                    <p>A paint application developed in Python utilizing OOP principles.</p>
-                </div>
-            </div>
+        <div class="projects-container" id="projects-container">
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 لائبہ اقبال. All rights reserved.</p>
     </footer>
+
+    <script>
+        const projectsData = [
+            {
+                title: "Solitaire Game",
+                description: "A fully functional solitaire game developed using C++.",
+                imgSrc: "card.jpg",
+                imgAlt: "Solitaire Game"
+            },
+            {
+                title: "Search Engine",
+                description: "A simple search engine using data structures concepts in Python.",
+                imgSrc: "search.jpg",
+                imgAlt: "Search Engine"
+            },
+            {
+                title: "Paint Application",
+                description: "A paint application developed in Python utilizing OOP principles.",
+                imgSrc: "paint.jpg",
+                imgAlt: "Paint Application"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectsContainer = document.getElementById('projects-container');
+
+            function createProjectCard(project) {
+                return `
+                    <div class="project-card">
+                        <img src="${project.imgSrc}" class="project-img" alt="${project.imgAlt}">
+                        <div class="project-content">
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            projectsData.forEach(project => {
+                projectsContainer.innerHTML += createProjectCard(project);
+            });
+        });
+    </script>
 </body>
 </html>
